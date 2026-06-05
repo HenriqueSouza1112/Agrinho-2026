@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HidroAgro — Reuso de Água na Agroindústria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Epilogue:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="cursor" aria-hidden="true">
+    <svg viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2 C12 2 3 13 3 18 C3 22.4 7.1 26 12 26 C16.9 26 21 22.4 21 18 C21 13 12 2 12 2Z" fill="rgba(56,189,248,0.9)" stroke="rgba(255,255,255,0.4)" stroke-width="0.8"/>
+      <ellipse cx="9" cy="16" rx="2" ry="3" fill="rgba(255,255,255,0.25)" transform="rotate(-20 9 16)"/>
+    </svg>
+  </div>
+  <div id="cursor-trail" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="header-left">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <a href="#" class="site-logo">
+        <div class="logo-mark">
+          <svg width="28" height="28" viewBox="0 0 28 28"><path d="M14 2C14 2 4 13.5 4 19C4 23.4 8.5 27 14 27C19.5 27 24 23.4 24 19C24 13.5 14 2 14 2Z" fill="url(#logoGrad)"/><defs><linearGradient id="logoGrad" x1="4" y1="2" x2="24" y2="27"><stop offset="0%" stop-color="#7DD3FC"/><stop offset="100%" stop-color="#0369A1"/></linearGradient></defs></svg>
+        </div>
+        <span>Hidro<em>Agro</em></span>
+      </a>
+      <div class="header-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+          <span class="sun">&#9675;</span>
+          <span class="moon">&#9670;</span>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#news">Notícias</a></li>
+        <li><a href="#game">Minigame</a></li>
+        <li><a href="#">Tecnologia</a></li>
+        <li><a href="#">Regulação</a></li>
+        <li><a href="#">Sobre</a></li>
+      </ul>
+    </nav>
+    <nav class="desktop-nav container">
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#news">Notícias</a></li>
+        <li><a href="#game">Minigame</a></li>
+        <li><a href="#">Tecnologia</a></li>
+        <li><a href="#">Regulação</a></li>
+        <li><a href="#">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg-lines" aria-hidden="true">
+        <div class="pipe pipe-h pipe-h1"></div>
+        <div class="pipe pipe-h pipe-h2"></div>
+        <div class="pipe pipe-v pipe-v1"></div>
+        <div class="pipe pipe-v pipe-v2"></div>
+        <div class="flow-dot fd1"></div>
+        <div class="flow-dot fd2"></div>
+        <div class="flow-dot fd3"></div>
+        <div class="flow-dot fd4"></div>
+        <div class="flow-dot fd5"></div>
+      </div>
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Edição Especial · Junho 2026</span>
+        </div>
+        <h1 class="hero-title">
+          Cada Gota<br/>
+          <em>Reutilizada</em><br/>
+          É uma Colheita<br/>
+          Garantida
+        </h1>
+        <p class="hero-sub">A agroindústria brasileira desperdiça 40% da água que poderia ser tratada e reinserida no processo produtivo. Conheça as tecnologias e políticas que estão mudando esse cenário.</p>
+        <div class="hero-cta-row">
+          <a href="#news" class="btn-primary">Explorar Reportagens</a>
+          <a href="#game" class="btn-ghost">▶ Jogar o Minigame</a>
+        </div>
+      </div>
+      <div class="hero-meter">
+        <div class="meter-label">Índice Global de Reuso · Agroindústria</div>
+        <div class="meter-track">
+          <div class="meter-fill" id="heroMeter"></div>
+        </div>
+        <div class="meter-val">38%</div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-strip">
+      <div class="container stats-row">
+        <div class="stat-item">
+          <span class="s-num">70<small>%</small></span>
+          <span class="s-lbl">da água doce mundial usada na agricultura</span>
+        </div>
+        <div class="stat-item">
+          <span class="s-num">R$4,2<small>bi</small></span>
+          <span class="s-lbl">investidos em saneamento industrial em 2024</span>
+        </div>
+        <div class="stat-item">
+          <span class="s-num">85<small>%</small></span>
+          <span class="s-lbl">de redução de consumo possível com ETA/ETE</span>
+        </div>
+        <div class="stat-item">
+          <span class="s-num">2030</span>
+          <span class="s-lbl">meta ODS-6 de acesso universal à água</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEWS FEED -->
+    <section class="news-section container" id="news">
+      <div class="sec-head">
+        <h2 class="sec-title">Feed de Notícias</h2>
+        <div class="filters">
+          <button class="fbtn active" data-filter="all">Todos</button>
+          <button class="fbtn" data-filter="tecnologia">Tecnologia</button>
+          <button class="fbtn" data-filter="politica">Política</button>
+          <button class="fbtn" data-filter="cases">Cases</button>
+        </div>
+      </div>
+      <div class="news-grid" id="newsGrid"></div>
+    </section>
+
+    <!-- MINIGAME -->
+    <section class="game-section" id="game">
+      <div class="container">
+        <div class="game-header">
+          <div>
+            <span class="game-eyebrow">Minigame Educativo</span>
+            <h2 class="game-title">Gestor de Água</h2>
+            <p class="game-desc">Clique nas gotículas para capturá-las antes que se percam. Cada gota coletada aumenta sua taxa de reuso. Você tem 30 segundos!</p>
+          </div>
+          <div class="game-stats">
+            <div class="gs-item">
+              <span class="gs-val" id="gsScore">0</span>
+              <span class="gs-lbl">Gotas</span>
+            </div>
+            <div class="gs-item">
+              <span class="gs-val" id="gsReuso">0%</span>
+              <span class="gs-lbl">Reuso</span>
+            </div>
+            <div class="gs-item">
+              <span class="gs-val" id="gsTime">30</span>
+              <span class="gs-lbl">Seg.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-arena" id="gameArena">
+          <div class="arena-bg-pipes" aria-hidden="true">
+            <div class="ap ap1"></div>
+            <div class="ap ap2"></div>
+            <div class="ap ap3"></div>
+          </div>
+          <div class="game-idle" id="gameIdle">
+            <div class="idle-drop">
+              <svg viewBox="0 0 40 48" width="40"><path d="M20 4C20 4 5 22 5 32C5 40.8 11.7 47 20 47C28.3 47 35 40.8 35 32C35 22 20 4 20 4Z" fill="rgba(56,189,248,0.7)"/></svg>
+            </div>
+            <p>Pressione <strong>Iniciar</strong> para começar</p>
+            <button class="btn-start" id="btnStart">Iniciar Partida</button>
+          </div>
+          <div class="game-over-screen" id="gameOver" style="display:none">
+            <p class="go-label">Partida Encerrada</p>
+            <p class="go-score" id="goScore">0 gotas</p>
+            <p class="go-reuso" id="goReuso">Taxa de Reuso: 0%</p>
+            <p class="go-msg" id="goMsg"></p>
+            <button class="btn-start" id="btnRestart">Jogar Novamente</button>
+          </div>
+        </div>
+
+        <div class="game-legend">
+          <span><span class="leg-dot blue"></span> Gota limpa (+2 pts)</span>
+          <span><span class="leg-dot cyan"></span> Gota tratada (+3 pts)</span>
+          <span><span class="leg-dot gold"></span> Gota premium (+5 pts)</span>
+          <span><span class="leg-dot red"></span> Efluente (−1 pt)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+      <div class="container nl-inner">
+        <div>
+          <h3 class="nl-title">Relatórios Exclusivos</h3>
+          <p class="nl-sub">Dados de mercado, regulação e inovação em reuso de água toda semana.</p>
+        </div>
+        <form class="nl-form" onsubmit="handleSub(event)">
+          <input type="email" placeholder="seu@email.com.br" required aria-label="E-mail"/>
+          <button type="submit">Assinar</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="site-logo">
+          <div class="logo-mark sm">
+            <svg width="22" height="22" viewBox="0 0 28 28"><path d="M14 2C14 2 4 13.5 4 19C4 23.4 8.5 27 14 27C19.5 27 24 23.4 24 19C24 13.5 14 2 14 2Z" fill="url(#lg2)"/><defs><linearGradient id="lg2" x1="4" y1="2" x2="24" y2="27"><stop offset="0%" stop-color="#7DD3FC"/><stop offset="100%" stop-color="#0369A1"/></linearGradient></defs></svg>
+          </div>
+          <span>Hidro<em>Agro</em></span>
+        </a>
+        <p>Jornalismo técnico sobre gestão hídrica na cadeia agroalimentar.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Editorias</h4>
+        <ul>
+          <li><a href="#">Tratamento de Efluentes</a></li>
+          <li><a href="#">Irrigação de Precisão</a></li>
+          <li><a href="#">Regulação & Licenças</a></li>
+          <li><a href="#">Inovação & Startups</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Anuncie</a></li>
+          <li><a href="#">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>© 2026 HidroAgro. Informação técnica a serviço do agronegócio sustentável.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
